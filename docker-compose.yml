@@ -12,7 +12,7 @@ services:
       MYSQL_DATABASE: demo
     container_name: mysql_server
     volumes:
-      - /server/mysql/data:/var/lib/mysql
+      - ./mysql/data:/var/lib/mysql
     networks:
       - webnet
 
