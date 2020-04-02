@@ -1,0 +1,31 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: demo
+      MYSQL_PASSWORD: demo
+      MYSQL_DATABASE: demo
+    container_name: mysql_server
+    volumes:
+      - /server/mysql/data:/var/lib/mysql
+    networks:
+      - webnet
+
+  application-server:
+    build: .
+    command: mvn spring-boot:run
+    ports:
+      - 8080:8080
+    container_name: application_server
+    networks:
+      - webnet
+    depends_on:
+     - "db"
+networks:
+  webnet:
+
