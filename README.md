@@ -37,4 +37,22 @@ services:
     container_name: mysql_server
     volumes:
 ...
-`
+```
+
+Your MySQL database files will be held in the `mysql/data` folder
+
+### Build docker
+
+`docker-compose build`
+
+### Run docker
+
+`docker-compose up`
+
+If you want to run in detach mode
+
+`docker-compose up -d`
+
+### stop docker
+
+` docker-compose down`
